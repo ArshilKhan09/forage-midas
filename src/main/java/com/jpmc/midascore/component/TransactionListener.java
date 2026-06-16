@@ -9,11 +9,9 @@ public class TransactionListener {
 
     @KafkaListener(
             topics = "${general.kafka-topic}",
-            containerFactory = "kafkaListenerContainerFactory"
+            groupId = "midas-core-group"
     )
     public void listen(Transaction transaction) {
-
-        System.out.println("Received transaction: " + transaction);
-
+        System.out.println(transaction);
     }
 }
